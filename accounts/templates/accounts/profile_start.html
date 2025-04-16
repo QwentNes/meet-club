@@ -31,20 +31,20 @@
 									{% if friend_request_sent %}
 										<form action="{% url 'delete_friend_request' user.pk request.user.pk %}" method="post">
 											{% csrf_token %}
-											<button type="submit" class="btn btn-primary rounded-pill">Cancel Friend Request</button>
+											<button type="submit" class="btn btn-primary rounded-pill">Отменить запрос в друзья</button>
 										</form>
 									{% else %}
 										<form action="{% url 'send_friend_request' user.pk %}" method="post">
 											{% csrf_token %}
-											<button type="submit" class="btn btn-primary rounded-pill">Add Friend</button>
+											<button type="submit" class="btn btn-primary rounded-pill">Добавить в друзья</button>
 										</form>
 									{% endif %}
 								{% endif %}
 								<button class="btn btn-outline-primary rounded-pill px-4 ml-0 ml-md-2 mt-2 mt-md-0 f-w6 follow-btn" data-user_pk="{{ user.pk }}">
 									{% if request.user in user.userprofile.followers.all %}
-										Following
+										Подписан
 									{% else %}
-										Follow
+										Подписаться
 									{% endif %}
 								</button>
 							</div>
@@ -52,7 +52,7 @@
 							<div class="mt-2 mt-lg-0 ml-0 ml-lg-3">
 								<a href="{% url 'update_user_profile' user.pk %}" class="btn btn-danger">
 									<i class="fa fa-pen mr-2"></i>
-									Edit Profile
+									Редактировать профиль
 								</a>
 							</div>
 						{% endif %}
@@ -66,7 +66,7 @@
 						{% if user.userprofile.occupation %}
 							<span>{{ user.userprofile.occupation }}</span>
 						{% else %}
-							<span>No Occupation Added</span>
+							<span>Ничем не занимается</span>
 						{% endif %}
 					</div>
 					<div class="text-muted mr-3">
@@ -74,30 +74,30 @@
 						{% if user.userprofile.location %}
 							<span>{{ user.userprofile.location }}</span>
 						{% else %}
-							<span>No Location Added</span>
+							<span>Нет адреса</span>
 						{% endif %}
 					</div>
 					<div class="text-muted mr-3">
 						<i class="fa fa-calendar mr-1"></i>
-						<span>Joined: {{ user.date_joined | date:"F d, Y" }}</span>
+						<span>Зарегистрирован с: {{ user.date_joined | date:"F d, Y" }}</span>
 					</div>
 				</div>
 				<hr class="mx-n3 my-4">
 				<ul class="nav nav-fill">
 					<li class="nav-item">
-						<a href="{% url 'profile_post' user.pk %}" class="nav-link nav-item-line {% if page == 'profile_post' %}active{% endif %} text-muted font-weight-bold profile__profile-nav-link" style="font-size: 17px;">Post</a>
+						<a href="{% url 'profile_post' user.pk %}" class="nav-link nav-item-line {% if page == 'profile_post' %}active{% endif %} text-muted font-weight-bold profile__profile-nav-link" style="font-size: 17px;">Запостить</a>
 					</li>
 					<li class="nav-item">
-						<a href="{% url 'profile_about' user.pk %}" class="nav-link nav-item-line text-muted font-weight-bold profile__profile-nav-link {% if page == 'profile_about' %}active{% endif %}" style="font-size: 17px;">About</a>
+						<a href="{% url 'profile_about' user.pk %}" class="nav-link nav-item-line text-muted font-weight-bold profile__profile-nav-link {% if page == 'profile_about' %}active{% endif %}" style="font-size: 17px;">О нас</a>
 					</li>
 					<li class="nav-item">
-						<a href="{% url 'friend_list' user.pk %}" class="nav-link nav-item-line text-muted font-weight-bold profile__profile-nav-link {% if page == 'profile_friends' %}active{% endif %}" style="font-size: 17px;">Friends</a>
+						<a href="{% url 'friend_list' user.pk %}" class="nav-link nav-item-line text-muted font-weight-bold profile__profile-nav-link {% if page == 'profile_friends' %}active{% endif %}" style="font-size: 17px;">Друзья</a>
 					</li>
 					<li class="nav-item">
-						<a href="{% url 'profile_photos' user.pk %}" class="nav-link nav-item-line text-muted font-weight-bold profile__profile-nav-link {% if page == 'profile_photos' %}active{% endif %}" style="font-size: 17px;">Photo</a>
+						<a href="{% url 'profile_photos' user.pk %}" class="nav-link nav-item-line text-muted font-weight-bold profile__profile-nav-link {% if page == 'profile_photos' %}active{% endif %}" style="font-size: 17px;">Фото</a>
 					</li>
 					<li class="nav-item">
-						<a href="{% url 'profile_groups' user.pk %}" class="nav-link nav-item-line text-muted font-weight-bold profile__profile-nav-link {% if page == 'profile_groups' %}active{% endif %}" style="font-size: 17px;">Groups</a>
+						<a href="{% url 'profile_groups' user.pk %}" class="nav-link nav-item-line text-muted font-weight-bold profile__profile-nav-link {% if page == 'profile_groups' %}active{% endif %}" style="font-size: 17px;">Группы</a>
 					</li>
 				</ul>
 			</div>

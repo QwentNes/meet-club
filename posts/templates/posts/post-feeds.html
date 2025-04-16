@@ -217,11 +217,11 @@
 			<hr>
 			<div class="d-flex justify-content-between">
 				<button class="btn btn-sm btn-outline-primary border-0 {% if request.user in post.likes.all %}bg-primary text-white{% endif %} like-btn" data-post_id="{{ post.pk }}">
-					<span class="small"><i class="fa fa-heart"></i> <span class="d-none d-md-inline-block">Like</span> (<span class="likes-count">{{ post.likes.all.count }}</span>)</span>
+					<span class="small"><i class="fa fa-heart"></i> <span class="d-none d-md-inline-block">Нравится</span> (<span class="likes-count">{{ post.likes.all.count }}</span>)</span>
 				</button>
-				<a href="{% url 'post_detail' post.pk %}#comment-section" class="btn btn-sm btn-outline-primary border-0"><span class="small"><i class="fa fa-comment"></i> <span class="d-none d-md-inline-block">Comments</span> ({{ post.comment_count }})</span></a>
+				<a href="{% url 'post_detail' post.pk %}#comment-section" class="btn btn-sm btn-outline-primary border-0"><span class="small"><i class="fa fa-comment"></i> <span class="d-none d-md-inline-block">Комментарии</span> ({{ post.comment_count }})</span></a>
 				<button class="btn btn-sm btn-outline-primary border-0" data-toggle="modal" data-target="#share-post-{{ post.pk }}-modal">
-					<span class="small"><i class="fa fa-share"></i> <span class="d-none d-md-inline-block">Share</span> ({{ post.post_set.all.count }})</span>
+					<span class="small"><i class="fa fa-share"></i> <span class="d-none d-md-inline-block">Поделиться</span> ({{ post.post_set.all.count }})</span>
 				</button>
 
 				<!-- Share Post Modal -->
@@ -240,9 +240,9 @@
 					<form method="post" action="{% url 'comment_create' post.pk %}" class="flex-grow-1">
 						{% csrf_token %}
 						<div class="input-group">
-							<textarea name="comment" class="form-control r-none"  rows="1" placeholder="Add a comment..."></textarea>
+							<textarea name="comment" class="form-control r-none"  rows="1" placeholder="Добавить комментарий..."></textarea>
 							<div class="input-group-append">
-								<button type="submit" class="btn btn-primary">Post</button>
+								<button type="submit" class="btn btn-primary">Добавить</button>
 							</div>
 						</div>
 					</form>
@@ -253,7 +253,7 @@
 	{% empty %}
 
 		<div class="card bg-white p-3">
-			<h4 class="text-center text-muted">No Post</h4>
+			<h4 class="text-center text-muted">Нет постов</h4>
 		</div>
 
 	{% endfor %}

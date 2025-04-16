@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Groups{% endblock title %}
+{% block title %}Группы{% endblock title %}
 
 {% block content %}
 
@@ -10,12 +10,12 @@
                 <div class="bg-white border pl-3 pr-3 py-3 h-100 group">
                     <div>
                         <a href="{% url 'groups' 'all-groups' %}" class="d-inline-block text-dark">
-                            <h4 class="font-weight-bold">Groups</h4>
+                            <h4 class="font-weight-bold">Группы</h4>
                         </a>
                     </div>
                     <div class="mt-3">
                         <form method="get" action="{% url 'search_groups' 'all-groups' %}" class="position-relative">
-                            <input class="form-control background-llgrey rounded-pill" placeholder="Search groups..." type="text" name="query" style="padding-left: 40px;">
+                            <input class="form-control background-llgrey rounded-pill" placeholder="Найти группу..." type="text" name="query" style="padding-left: 40px;">
                             <i class="fa fa-search position-absolute text-muted" style="top: 50%; left: 15px; transform: translateY(-50%);"></i>
                         </form>
                     </div>
@@ -23,7 +23,7 @@
 
                         <div class="mt-3">
                             <hr>
-                            <h6 class="font-weight-bold">Filter</h6>
+                            <h6 class="font-weight-bold">Фильтр</h6>
 
                             <div class="mt-2">
                                 <div class="d-flex flex-column">
@@ -32,7 +32,7 @@
                                             <div class="background-lgrey rounded-circle d-flex justify-content-center align-items-center" style="width: 35px; height: 35px;">
                                                 <i class="fa fa-globe-americas position-relative"></i>
                                             </div>
-                                            <span class="ml-2 f-w6">All</span>
+                                            <span class="ml-2 f-w6">Все</span>
                                         </div>
                                     </a>
                                     <a href="{% url 'search_groups' 'my-groups' %}?query={{ request.GET.query }}" class="text-dark group-link {% if 'my-groups' in request.path %}active{% endif %} p-2 rounded-lg mb-2">
@@ -40,7 +40,7 @@
                                             <div class="background-lgrey rounded-circle d-flex justify-content-center align-items-center" style="width: 35px; height: 35px;">
                                                 <i class="fa fa-users position-relative"></i>
                                             </div>
-                                            <span class="ml-2 f-w6">My Groups</span>
+                                            <span class="ml-2 f-w6">Мои группы</span>
                                         </div>
                                     </a>
                                 </div>
@@ -56,7 +56,7 @@
                                         <div class="background-lgrey rounded-circle d-flex justify-content-center align-items-center" style="width: 35px; height: 35px;">
                                             <i class="fa fa-globe-americas position-relative"></i>
                                         </div>
-                                        <span class="ml-2 f-w6">Discover</span>
+                                        <span class="ml-2 f-w6">Рекомендации</span>
                                     </div>
                                 </a>
                                 <a href="{% url 'groups' 'my-groups' %}" class="text-dark group-link {% if 'my-groups' in request.path %}active{% endif %} p-2 rounded-lg mb-2">
@@ -64,7 +64,7 @@
                                         <div class="background-lgrey rounded-circle d-flex justify-content-center align-items-center" style="width: 35px; height: 35px;">
                                             <i class="fa fa-users position-relative"></i>
                                         </div>
-                                        <span class="ml-2 f-w6">Your Groups</span>
+                                        <span class="ml-2 f-w6">Ваши группы</span>
                                     </div>
                                 </a>
                             </div>
@@ -73,7 +73,7 @@
                         <div class="mt-2">
                             <a href="{% url 'group_create' %}" class="btn bg-secondary-light blue-link w-100">
                                 <i class="fa fa-plus mr-1"></i>
-                                Create new group
+                                Создать новую группу
                             </a>
                         </div>
                     {% endif %}
@@ -83,7 +83,7 @@
                 <div class="px-md-3 py-3 h-100">
                     {% if 'my-groups' in request.path and 'search' not in request.path %}
                         <div class="d-flex mb-2">
-                            <span class="f-w6" style="font-size: 17px;">All groups you have joined ({{ object_list.count }})</span>
+                            <span class="f-w6" style="font-size: 17px;">Все ваши группы ({{ object_list.count }})</span>
                         </div>
                     {% endif %}
                     <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); grid-gap: 10px;" class="text-muted mt-1">
@@ -97,18 +97,18 @@
                                         <a href="{{ group.get_absolute_url }}">
                                             <span class="text-dark hover-blue f-w6">{{ group.name }}</span>
                                         </a>
-                                        <span class="small">{{ group.members.all.count }} members</span>
+                                        <span class="small">{{ group.members.all.count }} участников</span>
                                     </div>
                                 </div>
                                 <div class="d-none d-md-flex mt-3">
-                                    <a href="{{ group.get_absolute_url }}" class="btn bg-secondary-light blue-link rounded-lg flex-grow-1">View group</a>
+                                    <a href="{{ group.get_absolute_url }}" class="btn bg-secondary-light blue-link rounded-lg flex-grow-1">Показать группу</a>
                                     <div class="dropdown">
                                         <button class="h-100 ml-3 btn btn-light dropdown-toggle" data-toggle="dropdown" type="button">
                                             <i class="fa fa-ellipsis-h"></i>
                                             <div class="dropdown-menu dropdown-menu-right">
                                                 <a href="#" class="dropdown-item">
                                                     <i class="fa fa-user-times mr-2 text-danger"></i>
-                                                    Leave group
+                                                    Покинуть группу
                                                 </a>
                                             </div>
                                         </button>

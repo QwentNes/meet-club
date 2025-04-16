@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %} Search "{{request.GET.query}}"{% endblock title %}
+{% block title %} Поиск "{{request.GET.query}}"{% endblock title %}
 
 {% block content %}
 
@@ -24,7 +24,7 @@
 
                         {% empty %}
 
-                            <h4 class="text-center text-muted my-3">No result for "{{request.GET.query}}"</h4>
+                            <h4 class="text-center text-muted my-3">Ничего не найдено по запросу: "{{request.GET.query}}"</h4>
 
                         {% endfor %}
                     </div>

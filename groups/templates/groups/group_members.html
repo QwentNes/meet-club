@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ group.name }} members{% endblock title %}
+{% block title %}{{ group.name }} участники группы{% endblock title %}
 
 {% block content %}
 
@@ -11,7 +11,7 @@
                     {% include 'groups/group_detail_start.html' %}
                     <div class="card p-3">
                         <div class="d-flex align-items-center">
-                            <a href="{% url 'group_members' group.pk %}" class="font-weight-bold f-lg text-dark">Members</a>
+                            <a href="{% url 'group_members' group.pk %}" class="font-weight-bold f-lg text-dark">Учестники</a>
                             <i class="fa fa-circle text-muted mx-2" style="font-size: 3px;"></i>
                             <span class="text-muted font-weight-bold">{{ group.members.all.count }}</span>
                         </div>
@@ -39,7 +39,7 @@
                                                 <i class="fa fa-ellipsis-h"></i>
                                             </button>
                                             <div class="dropdown-menu dropdown-menu-right">
-                                                <a href="{% url 'join_group' group.pk request.user.pk %}" class="dropdown-item">Leave group</a>
+                                                <a href="{% url 'join_group' group.pk request.user.pk %}" class="dropdown-item">Покинуть группу</a>
                                             </div>
                                         </div>
                                     </div>
@@ -49,7 +49,7 @@
                             <hr>
                             <div class="mt-n1">
                                 <div class="d-flex align-items-center mb-1">
-                                    <span class="font-weight-bold f-lg">Admins</span>
+                                    <span class="font-weight-bold f-lg">Админы</span>
                                     <i class="fa fa-circle text-muted mx-2" style="font-size: 3px;"></i>
                                     <span class="text-muted font-weight-bold">{{ group.admin_members.all.count }}</span>
                                 </div>
@@ -97,7 +97,7 @@
                             {% else %}
 
                                 <div class="d-flex align-items-center mb-1">
-                                    <span class="font-weight-bold f-lg">Group Members</span>
+                                    <span class="font-weight-bold f-lg">Участники группы</span>
                                     <i class="fa fa-circle text-muted mx-2" style="font-size: 3px;"></i>
                                     <span class="text-muted font-weight-bold">{{ group_members.all.count }}</span>
                                 </div>
@@ -123,9 +123,9 @@
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a href="{% url 'join_group' group.pk member.pk %}" class="dropdown-item">
                                                             {% if request.user == admin %}
-                                                                Leave group
+                                                                Покинуть группу
                                                             {% else %}
-                                                                Remove {{ member.userprofile.full_name }}
+                                                                Исключить {{ member.userprofile.full_name }}
                                                             {% endif %}
                                                         </a>
                                                     </div>

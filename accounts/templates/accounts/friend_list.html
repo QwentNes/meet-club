@@ -19,18 +19,18 @@
 			<div class="col-12">
 				<div class="card p-4 bg-white">
 					<div class="d-flex flex-wrap align-items-md-center justify-content-between">
-						<span class="font-weight-bold f-lg flex-shrink-0">Friends</span>
+						<span class="font-weight-bold f-lg flex-shrink-0">Друзья</span>
 						<div class="d-flex flex-wrap align-items-start align-items-md-center">
                             {% if friends %}
     							<form>
     								<div class="form-group position-relative mb-n1 mr-2 flex-shrink-0">
-    									<input type="search" class="form-control form-control-sm rounded-pill" name="search_friend" placeholder="Search friend..." style="padding-left: 35px;">
+    									<input type="search" class="form-control form-control-sm rounded-pill" name="search_friend" placeholder="Найти друга..." style="padding-left: 35px;">
     									<i class="fa fa-search position-absolute text-muted" style="top: 50%; left: 10px; transform: translateY(-50%);"></i>
     								</div>
     							</form>
                             {% endif %}
 							<div class="flex-shrink-0 mt-1 mt-md-0">
-								<a href="{% url 'user_search' %}" class="f-w6 small">Find Friends</a>
+								<a href="{% url 'user_search' %}" class="f-w6 small">Найти дрзей</a>
 							</div>
 						</div>
 					</div>
@@ -46,15 +46,15 @@
                                     <a href="{% url 'profile_post' friend.pk %}">
                                         <h6 class="text-dark hover-blue">{{ friend.first_name }} {{ friend.last_name }}</h6>
                                     </a>
-                                    <span class="small text-muted mb-2">16 Mutual Friends</span>
+                                    <span class="small text-muted mb-2">16 общих друзей</span>
                                     <div>
                                         <span>
-                                            <a href="#" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Send Message">
+                                            <a href="#" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Отправить сообщение">
                                                 <i class="fa fa-comment-alt"></i>
                                             </a>
                                         </span>
                                         <span data-toggle="modal" data-target="#remove-user-{{ friend.pk }}-modal">
-                                            <button class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Remove Friend">
+                                            <button class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Удалить друга">
                                                 <i class="fa fa-user-minus"></i>
                                             </button>
                                         </span>
@@ -65,17 +65,17 @@
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                <h5 class="modal-title" id="remove-user-{{ friend.pk }}-modal-title">Remove Friend</h5>
+                                                <h5 class="modal-title" id="remove-user-{{ friend.pk }}-modal-title">Удаление друга</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                <p>Are you sure you want to remove "{{ friend.first_name }} {{ friend.last_name }}" as your friend?</p>
+                                                <p>Вы уверены, что хотите убрать "{{ friend.first_name }} {{ friend.last_name }}" из друзей?</p>
                                                 </div>
                                                 <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                                <a href="{% url 'remove_friend' friend.pk %}" class="btn btn-danger">Yes, Remove</a>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                                                <a href="{% url 'remove_friend' friend.pk %}" class="btn btn-danger">Да</a>
                                                 </div>
                                             </div>
                                             </div>

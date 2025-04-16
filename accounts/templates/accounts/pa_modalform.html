@@ -57,12 +57,12 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
 					<button type="submit" class="btn btn-primary">
 						{% if model|fieldvalue:field_name %}
-							Edit
+							Редактировать
 						{% else %}
-							Add
+							Добавить
 						{% endif %}
 					</button>
 				</div>
@@ -74,11 +74,11 @@
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title">Delete 
+				<h5 class="modal-title">Удаление 
 					{% if field_name == 'birth_date' %}
-						Date Of Birth
+						Дата рождения
 					{% elif field_name == 'marital_status' %}
-						Marital Status
+						Семейное положение
 					{% else %}
 						{{ field_name }}
 					{% endif %}
@@ -92,11 +92,11 @@
 				{% csrf_token %}
 				<div class="modal-body">
 					<input type="hidden" name="{{ field_name }}" class="form-control" value="">
-					<span class="text-dark">Are you sure you want to delete "
+					<span class="text-dark">Вы уверены, что хотите удалить "
 						{% if field_name == 'birth_date' %}
-							Date Of Birth
+							"Дата рождения"
 						{% elif field_name == 'marital_status' %}
-							Marital Status
+							"Семейное положение"
 						{% else %}
 							{{ field_name }}
 						{% endif %}
@@ -110,8 +110,8 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button type="submit" class="btn btn-danger">Yes, Delete</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+					<button type="submit" class="btn btn-danger">Удалить</button>
 				</div>
 			</form>
 		</div>

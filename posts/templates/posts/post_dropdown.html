@@ -4,10 +4,10 @@
 	</button>
 	<div class="dropdown-menu dropdown-menu-right">
     {% if request.user == post.user %}
-      <a href="{% url 'post_edit' post.pk %}" class="dropdown-item">Edit Post</a>
+      <a href="{% url 'post_edit' post.pk %}" class="dropdown-item">Редактирование поста</a>
       <div class="dropdown-divider"></div>
     {% endif %}
-		<a href="javascript:void()" class="dropdown-item" data-toggle="modal" data-target="#delete-post{{post.pk}}-modal">Delete Post</a>
+		<a href="javascript:void()" class="dropdown-item" data-toggle="modal" data-target="#delete-post{{post.pk}}-modal">Удалить пост</a>
 	</div>
 </div>
 
@@ -17,17 +17,17 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="delete-post{{post.pk}}-modal-title">Delete Post</h5>
+        <h5 class="modal-title" id="delete-post{{post.pk}}-modal-title">Удалить пост</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>Are you sure you want to delete this post?</p>
+        <p>Вы уверены, что хотите удалить пост?</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger">Yes, Delete</a>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+        <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger">Да, удалить</a>
       </div>
     </div>
   </div>

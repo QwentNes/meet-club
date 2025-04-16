@@ -103,7 +103,7 @@
 							<div class="p-1 rounded-circle bg-light">
 								<i class="fa fa-users"></i>
 							</div>
-							<span class="ml-2 mr-3">Groups</span>
+							<span class="ml-2 mr-3">Группы</span>
 						</a>
 					</li>
 				</ul>
@@ -112,7 +112,7 @@
 	</ul>
 	<div class="d-flex align-items-center">
 		<form class="position-relative" action="{% url 'user_search' %}">
-			<input class="form-control d-none d-md-block rounded-pill" placeholder="Search website..." type="text" name="query" style="padding-left: 40px;">
+			<input class="form-control d-none d-md-block rounded-pill" placeholder="Поиск по сайту..." type="text" name="query" style="padding-left: 40px;">
 			<i class="fa fa-search position-absolute text-muted d-none d-md-block" style="top: 50%; left: 15px; transform: translateY(-50%);"></i>
 			<a href="{% url 'user_search' %}" class="d-md-none mr-2">
 				<i class="fa fa-search icon-lg color-secondary"></i>
@@ -148,19 +148,19 @@
 					</div>
 				</div>
 				<div class="my-2">
-					<a href="{% url 'profile_post' request.user.pk %}" class="btn bg-secondary-light w-100 profile-btn">View Profile</a>
+					<a href="{% url 'profile_post' request.user.pk %}" class="btn bg-secondary-light w-100 profile-btn">Показать профиль</a>
 				</div>
 				<div class="mt-3">
 					<div class="mt-2">
 						<a href="{% url 'user_settings' %}" class="d-flex align-items-center">
 							<i class="fa fa-cog"></i>
-							<span class="ml-2">Settings & Privacy</span>
+							<span class="ml-2">Настройки и конфиденциальность</span>
 						</a>
 					</div>
 					<div class="mt-2">
 						<a href="{% url 'account_logout' %}" class="d-flex align-items-center text-danger">
 							<i class="fa fa-power-off"></i>
-							<span class="ml-2">Sign Out</span>
+							<span class="ml-2">Выйти</span>
 						</a>
 					</div>
 				</div>

@@ -2,7 +2,7 @@
 {% load chats_tags %}
 {% load static %}
 
-{% block title %}Chats{% endblock title %}
+{% block title %}Чаты{% endblock title %}
 
 {% block content %}
 
@@ -109,7 +109,7 @@
 	            		<form class="form-inline chat-form justify-content-end align-items-center flex-nowrap chat-form" method="post" action="{% url 'chat_create' thread.pk %}" enctype="multipart/form-data">
 	            			{% csrf_token %}
 	            			<div class="form-group flex-grow-1 mb-2 mb-md-0">
-	            				<input type="text" name="message" class="form-control w-100 chat-message" placeholder="Type a message">
+	            				<input type="text" name="message" class="form-control w-100 chat-message" placeholder="Написать сообщение">
 	            			</div>
 	            			<div class="form-group ml-2 mb-0">
 	            				<label class="btn btn-sm background-lgrey py-2">

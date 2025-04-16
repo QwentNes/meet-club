@@ -4,9 +4,9 @@
 {% if request.user == user %}
 	Your
 {% else %}
-	{{ user.username }}'s
+	Группа {{ user.username }}
 {% endif %}
-Groups
+Группы
 {% endblock title %}
 
 {% block content %}
@@ -28,18 +28,18 @@ Groups
 				                    <a href="{{ group.get_absolute_url }}">
 				                        <span class="text-dark hover-blue f-w6">{{ group.name }}</span>
 				                    </a>
-				                    <span class="small">{{ group.members.all.count }} members</span>
+				                    <span class="small">{{ group.members.all.count }} Члены группы</span>
 				                </div>
 				            </div>
 				            <div class="d-none d-md-flex mt-3">
-				                <a href="{{ group.get_absolute_url }}" class="btn bg-secondary-light blue-link rounded-lg flex-grow-1">View group</a>
+				                <a href="{{ group.get_absolute_url }}" class="btn bg-secondary-light blue-link rounded-lg flex-grow-1">Показать группу</a>
 				                <div class="dropdown">
 				                    <button class="h-100 ml-3 btn btn-light dropdown-toggle" data-toggle="dropdown" type="button">
 				                        <i class="fa fa-ellipsis-h"></i>
 				                        <div class="dropdown-menu dropdown-menu-right">
 				                            <a href="#" class="dropdown-item">
 				                                <i class="fa fa-user-times mr-2 text-danger"></i>
-				                                Leave group
+				                                Покинуть
 				                            </a>
 				                        </div>
 				                    </button>

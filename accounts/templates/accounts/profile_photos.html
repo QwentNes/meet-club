@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ user.username }}'s photos{% endblock title %}
+{% block title %}Фотографии пользователя {{ user.username }}{% endblock title %}
 
 {% block content %}
 
@@ -19,10 +19,10 @@
 
                     <h4 class="text-center mb-4 font-weight-bold">Photos</h4>
                     <div>
-                        <h5 class="mb-3 f-w6">Profile Photo</h5>
+                        <h5 class="mb-3 f-w6">Фото профиля</h5>
                         {% if user.userprofile.profileimage_set.all.count == 1 %}
 
-                            <h4 class="text-muted text-center">No Profile Photo</h4>
+                            <h4 class="text-muted text-center">Фото нет</h4>
                 
                         {% else %}
 
@@ -39,10 +39,10 @@
                         {% endif %}
                     </div>
                     <div class="mt-3">
-                        <h5 class="mb-3 f-w6">Cover Photo</h5>
+                        <h5 class="mb-3 f-w6">Обложка</h5>
                         {% if user.userprofile.coverimage_set.all.count == 1 %}
 
-                            <h4 class="text-muted text-center">No Cover Photo</h4>
+                            <h4 class="text-muted text-center">Нет обложки</h4>
                 
                         {% else %}
 
@@ -60,7 +60,7 @@
                     </div>
                     <div class="mt-3">
                         <h5 class="mb-3 f-w6">
-                            {% if request.user == user %}Your{% endif %} Photos
+                            {% if request.user == user %}Ваши{% endif %} Фото
                         </h5>
                         <div class="d-flex flex-wrap">
                             {% for photo in post_photos %}
@@ -68,7 +68,7 @@
                                     <img src="{{ photo.image.url }}" class="rounded">
                                 </div>
                             {% empty %}
-                                <h4 class="text-muted mx-auto">No Photos</h4>
+                                <h4 class="text-muted mx-auto">Нет фото</h4>
                             {% endfor %}
                         </div>
                     </div>
