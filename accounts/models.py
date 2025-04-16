@@ -42,7 +42,7 @@ class FriendRequest(models.Model):
 
 class ProfileImage(models.Model):
 	userprofile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-	profile_image = models.ImageField(upload_to='profile_images/%Y-%m-%d/', default='profile_images/placeholder.jpg')
+	profile_image = models.ImageField(upload_to='profile_images/%Y-%m-%d/', default='profile_images/2025-04-16/placeholder_qkdxje.jpg')
 	created = models.DateTimeField(auto_now_add=True)
 
 	class Meta:
@@ -51,7 +51,7 @@ class ProfileImage(models.Model):
 
 class CoverImage(models.Model):
 	userprofile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-	cover_image = models.ImageField(upload_to='cover_images/%Y-%m-%d/', default='cover_images/placeholder.jpg')
+	cover_image = models.ImageField(upload_to='cover_images/%Y-%m-%d/', default='cover_images/2025-04-16/placeholder_hxvb1s.jpg')
 	created = models.DateTimeField(auto_now_add=True)
 
 	class Meta:
