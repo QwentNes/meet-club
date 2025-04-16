@@ -58,7 +58,7 @@ class ProfileAboutView(LoginRequiredMixin, TemplateView):
 		# print(user.userprofile._meta.get_fields())
 		field_dict = {}
 		icon_classes = {'marital_status': 'fa fa-heart', 'birth_date': 'fa fa-calendar', 'occupation': 'fa fa-briefcase', 'location': 'fa fa-map-marker-alt', 'date_joined': 'fa fa-calendar', 'email': 'fa fa-envelope'}
-		field_notes = {'marital_status': 'Status', 'birth_date': 'Born', 'occupation': '', 'location': 'Lives in', 'date_joined': 'Joined on', 'email': 'Email'}
+		field_notes = {'marital_status': 'Статус', 'birth_date': 'День рождения', 'occupation': 'Занятость', 'location': 'Живет в', 'date_joined': 'Присоединился', 'email': 'Email'}
 		for field in user.userprofile._meta.fields:
 			if field.name in ('marital_status', 'birth_date', 'occupation', 'location'):
 				field_dict[field.name] = {

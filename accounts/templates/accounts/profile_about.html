@@ -18,11 +18,9 @@
 					<h4 class="mb-3 font-weight-bold">Информация профиля</h4>
 					<div class="border rounded p-2 mt-2">
 						{% if user.userprofile.overview %}
-
 							<div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
 								<h6 class="font-weight-bold">Обзор</h6>
 								{% if request.user == user %}
-
 									<div class="dropdown">
 										<button class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">
 											<i class="fa fa-ellipsis-h"></i>
@@ -38,38 +36,28 @@
 											</a>
 										</div>
 									</div>
-
 								{% endif %}
 							</div>
 							<p class="text-muted">
 								{{ user.userprofile.overview }}
 							</p>
-
 						{% else %}
-
 							{% if request.user == user %}
-
 								<div class="d-flex align-items-center justify-content-center" data-toggle="modal" data-target="#overview-update-form{{ user.pk }}" style="height: 100px; cursor: pointer;">
 									<p class="f-w6 text-muted">
 										<i class="fa fa-plus-circle"></i>
 										<span>Добавить обзор</span>
 									</p>
 								</div>
-
 							{% else %}
-
 								<div class="d-flex align-items-center justify-content-center" style="height: 100px;">
 									<p class="f-w6 text-muted">
-										<span>Нет обзора</span>
+										<span>Нет описания</span>
 									</p>
 								</div>
-
 							{% endif %}
-
 						{% endif %}
-
 						{% include 'accounts/pa_modalform.html' with field_name='overview' model=user.userprofile model_name='userprofile' %}
-						
 					</div>
 					<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); grid-gap: 20px;" class="text-muted mt-4 about-grid">
 						{% for field_name, content in field_dict.items %}
@@ -95,11 +83,11 @@
 											<div class="dropdown-menu dropdown-menu-right">
 												<a href="javascript:void()" class="dropdown-item hover-blue" data-toggle="modal" data-target="#{{ field_name }}-update-form{{ user.pk }}">
 													<i class="fa fa-edit mr-1"></i>
-													Edit
+													Редактировать
 												</a>
 												<a href="javascript:void()" class="dropdown-item hover-blue" data-toggle="modal" data-target="#{{ field_name }}-delete-form{{ user.pk }}">
 													<i class="fa fa-trash mr-1"></i>
-													Delete
+													Удалить
 												</a>
 											</div>
 										</div>
@@ -112,7 +100,7 @@
 										<div class="d-flex flex-wrap align-items-center justify-content-lg-center w-100 f-w6" data-toggle="modal" data-target="#{{ field_name }}-update-form{{ user.pk }}" style="cursor: pointer;">
 											<i class="fa fa-plus-circle mr-1"></i>
 											<span>
-												Add 
+												Добавить
 												{% if field_name == 'birth_date' %}
 													Дата рождения
 												{% elif field_name == 'marital_status' %}

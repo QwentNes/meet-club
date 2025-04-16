@@ -16,14 +16,14 @@
 			<div class="modal-header">
 				<h5 class="modal-title">
 					{% if model|fieldvalue:field_name %}
-						Edit
+						Редактировать
 					{% else %}
-						Add
+						Добавить
 					{% endif %}
 					{% if field_name == 'marital_status' %}
-						Marital Status
+						Семейное положение
 					{% elif field_name == 'birth_date' %}
-						Date Of Birth
+						Дата рождения
 					{% else %}
 						{{ field_name|capfirst }}
 					{% endif %}
@@ -38,10 +38,10 @@
 				<div class="modal-body">
 					<div class="form-group">
 						{% if field_name == 'birth_date' %}
-							<label>Date Of Birth</label>
+							<label>Дата рождения</label>
 							<input type="date" name="birth_date" class="form-control" value="{{ model|fieldvalue:field_name | date:'Y-m-d' }}">
 						{% elif field_name == 'overview' %}
-							<label>Overview</label>
+							<label>Описание</label>
 							<textarea name="overview" class="form-control">{% if model|fieldvalue:field_name %}{{ model|fieldvalue:field_name }}{% endif %}</textarea>
 						{% else %}
 							<label>{{ field_name|capfirst }}</label>

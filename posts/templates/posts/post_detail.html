@@ -133,7 +133,7 @@
 									</div>
 									<div class="mt-3 text-muted d-flex flex-column align-items-start mb-2">
 										<span>{{ post.content }}</span>
-										<!-- <a href="{% url 'post_detail' post.pk %}">View Details</a> -->
+										<!-- <a href="{% url 'post_detail' post.pk %}">Подробнее</a> -->
 									</div>
 
 									{% if post.postimage_set.all %}
@@ -189,12 +189,12 @@
 						<hr>
 						<div class="d-flex justify-content-between">
 							<button class="btn btn-sm btn-outline-primary border-0 {% if request.user in post.likes.all %}bg-primary text-white{% endif %} like-btn" data-post_id="{{ post.pk }}">
-								<span class="small"><i class="fa fa-heart"></i> <span class="d-none d-md-inline-block">Like</span> (<span class="likes-count">{{ post.likes.all.count }}</span>)</span>
+								<span class="small"><i class="fa fa-heart"></i> <span class="d-none d-md-inline-block">Нравится</span> (<span class="likes-count">{{ post.likes.all.count }}</span>)</span>
 							</button>
-							<button class="btn btn-sm btn-outline-primary border-0"><span class="small"><i class="fa fa-comment"></i> <span class="d-none d-md-inline-block">Comments</span> ({{ post.comment_count }})</span></button>
-							<button class="btn btn-sm btn-outline-primary border-0" data-toggle="modal" data-target="#share-post-{{ post.pk }}-modal"><span class="small"><i class="fa fa-share"></i> <span class="d-none d-md-inline-block">Share</span> ({{ post.post_set.all.count }})</span></button>
+							<button class="btn btn-sm btn-outline-primary border-0"><span class="small"><i class="fa fa-comment"></i> <span class="d-none d-md-inline-block">Комментарии</span> ({{ post.comment_count }})</span></button>
+							<button class="btn btn-sm btn-outline-primary border-0" data-toggle="modal" data-target="#share-post-{{ post.pk }}-modal"><span class="small"><i class="fa fa-share"></i> <span class="d-none d-md-inline-block">Поделиться</span> ({{ post.post_set.all.count }})</span></button>
 
-							<!-- Share Post Modal -->
+							<!-- Share Post Modal --> 
 
 							{% include 'posts/post-share-modal.html' %}
 						</div>
@@ -210,9 +210,9 @@
 								<form method="post" action="{% url 'comment_create' post.pk %}" class="flex-grow-1">
 									{% csrf_token %}
 									<div class="input-group">
-										<textarea name="comment" class="form-control r-none"  rows="1" placeholder="Add a comment..."></textarea>
+										<textarea name="comment" class="form-control r-none"  rows="1" placeholder="Добавить комментарий..."></textarea>
 										<div class="input-group-append">
-											<button type="submit" class="btn btn-primary">Post</button>
+											<button type="submit" class="btn btn-primary">Отправить</button>
 										</div>
 									</div>
 								</form>
@@ -220,7 +220,7 @@
 							{% if post.comment_set.all %}
 
 								<div class="mt-3">
-									<h5 class="mb-1 text-muted">Comments</h5>
+									<h5 class="mb-1 text-muted">Комментарии</h5>
 									<!-- Comments -->
 									<div>
 										{% for comment in post.comment_set.all %}
@@ -247,9 +247,9 @@
 																			<i class="fa fa-ellipsis-h"></i>
 																		</button>
 																		<div class="dropdown-menu dropdown-menu-right">
-																			<a href="#" class="dropdown-item" data-toggle="modal" data-target="#edit-comment-{{ comment.pk }}-modal">Edit</a>
+																			<a href="#" class="dropdown-item" data-toggle="modal" data-target="#edit-comment-{{ comment.pk }}-modal">Редактировать</a>
 																			<div class="dropdown-divider"></div>
-																			<a href="#" class="dropdown-item" data-toggle="modal" data-target="#delete-comment-{{ comment.pk }}-modal">Delete</a>
+																			<a href="#" class="dropdown-item" data-toggle="modal" data-target="#delete-comment-{{ comment.pk }}-modal">Удалить</a>
 																		</div>
 																	</div>
 
@@ -259,7 +259,7 @@
 																	  <div class="modal-dialog modal-dialog-centered" role="document">
 																	    <div class="modal-content">
 																	      <div class="modal-header">
-																	        <h5 class="modal-title" id="edit-comment-{{ comment.pk }}-modal-title">Edit Comment</h5>
+																	        <h5 class="modal-title" id="edit-comment-{{ comment.pk }}-modal-title">Редактирование комментария</h5>
 																	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 																	          <span aria-hidden="true">&times;</span>
 																	        </button>
@@ -267,14 +267,14 @@
 																	      <form method="post" action="{% url 'comment_edit' comment.pk %}">
 																	      	{% csrf_token %}
 																		    <div class="modal-body">
-																		    	<label>Comment</label>
+																		    	<label>комментарий</label>
 																		        <div class="form-group">
 																		        	<textarea class="form-control" name="comment" rows="1">{{ comment.comment }}</textarea>
 																		        </div>
 																			</div>
 																		    <div class="modal-footer">
-																		    	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-																		        <button type="submit" class="btn btn-primary">Edit</button>
+																		    	<button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+																		        <button type="submit" class="btn btn-primary">Сохранить</button>
 																		    </div>
 																	      </form>
 																	    </div>
@@ -287,18 +287,18 @@
 																	  <div class="modal-dialog modal-dialog-centered" role="document">
 																	    <div class="modal-content">
 																	      <div class="modal-header">
-																	        <h5 class="modal-title" id="delete-comment-{{ comment.pk }}-modal-title">Delete Comment</h5>
+																	        <h5 class="modal-title" id="delete-comment-{{ comment.pk }}-modal-title">Удалить комментарий</h5>
 																	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 																	          <span aria-hidden="true">&times;</span>
 																	        </button>
 																	      </div>
 																	      <div class="modal-body">
-																	        <p>Are you sure you want to delete the comment?</p>
+																	        <p>Вы увереы что хотите удалить комментарий</p>
 																	        <p class="font-italic text-danger">"{{ comment.comment }}"</p>
 																	      </div>
 																	      <div class="modal-footer">
-																	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-																	        <a href="{% url 'comment_delete' comment.pk %}" class="btn btn-danger">Yes, Delete</a>
+																	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+																	        <a href="{% url 'comment_delete' comment.pk %}" class="btn btn-danger">Да, удалить</a>
 																	      </div>
 																	    </div>
 																	  </div>
@@ -311,14 +311,14 @@
 														<div class="d-flex mt-1 text-muted">
 															<span class="small c-pointer left-nav-link {% if request.user in comment.likes.all %}text-primary{% endif %} comment-like-element" data-comment_id="{{ comment.pk }}">
 																<i class="fa fa-heart"></i>
-																Like
+																Нравится
 																(<span class="comment-likes-count">{{ comment.likes.all.count }}</span>)
 															</span>
 															<span class="mx-2 d-flex align-items-center justify-content-center">
 																<i class="fa fa-circle" style="font-size: 5px;"></i>
 															</span>
 															<span class="small c-pointer left-nav-link reply-element" data-form_id="#comment-{{ comment.pk }}-reply-form">
-																Reply
+																Ответить
 																(<span>{{ comment.reply_set.all.count }}</span>)
 															</span>
 														</div>
@@ -326,9 +326,9 @@
 															<form method="post" action="{% url 'reply_create' comment.pk %}">
 																{% csrf_token %}
 																<div class="input-group">
-																	<textarea name="reply" class="form-control form-control-sm r-none"  rows="1" placeholder="Type Reply..."></textarea>
+																	<textarea name="reply" class="form-control form-control-sm r-none"  rows="1" placeholder="Введите ответ..."></textarea>
 																	<div class="input-group-append">
-																		<button type="submit" class="btn btn-primary">Reply</button>
+																		<button type="submit" class="btn btn-primary">Ответить</button>
 																	</div>
 																</div>
 															</form>
@@ -360,9 +360,9 @@
 																					<i class="fa fa-ellipsis-h"></i>
 																				</button>
 																				<div class="dropdown-menu dropdown-menu-right">
-																					<a href="#" class="dropdown-item" data-toggle="modal" data-target="#edit-reply-{{ reply.pk }}-modal">Edit</a>
+																					<a href="#" class="dropdown-item" data-toggle="modal" data-target="#edit-reply-{{ reply.pk }}-modal">Редактировать</a>
 																					<div class="dropdown-divider"></div>
-																					<a href="#" class="dropdown-item" data-toggle="modal" data-target="#delete-reply-{{ reply.pk }}-modal">Delete</a>
+																					<a href="#" class="dropdown-item" data-toggle="modal" data-target="#delete-reply-{{ reply.pk }}-modal">Удалить</a>
 																				</div>
 																			</div>
 
@@ -372,7 +372,7 @@
 																			  <div class="modal-dialog modal-dialog-centered" role="document">
 																			    <div class="modal-content">
 																			      <div class="modal-header">
-																			        <h5 class="modal-title" id="edit-reply-{{ reply.pk }}-modal-title">Edit Reply</h5>
+																			        <h5 class="modal-title" id="edit-reply-{{ reply.pk }}-modal-title">Редактировать ответ</h5>
 																			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 																			          <span aria-hidden="true">&times;</span>
 																			        </button>
@@ -380,14 +380,14 @@
 																			      <form method="post" action="{% url 'reply_edit' reply.pk %}">
 																			      	{% csrf_token %}
 																				    <div class="modal-body">
-																				    	<label>Reply</label>
+																				    	<label>Ответить</label>
 																				        <div class="form-group">
 																				        	<textarea class="form-control" name="reply" rows="1">{{ reply.reply }}</textarea>
 																				        </div>
 																					</div>
 																				    <div class="modal-footer">
-																				    	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-																				        <button type="submit" class="btn btn-primary">Edit</button>
+																				    	<button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+																				        <button type="submit" class="btn btn-primary">Сохранить</button>
 																				    </div>
 																			      </form>
 																			    </div>
@@ -400,18 +400,18 @@
 																			  <div class="modal-dialog modal-dialog-centered" role="document">
 																			    <div class="modal-content">
 																			      <div class="modal-header">
-																			        <h5 class="modal-title" id="delete-reply-{{ reply.pk }}-modal-title">Delete Reply</h5>
+																			        <h5 class="modal-title" id="delete-reply-{{ reply.pk }}-modal-title">Удаление ответа</h5>
 																			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 																			          <span aria-hidden="true">&times;</span>
 																			        </button>
 																			      </div>
 																			      <div class="modal-body">
-																			        <p>Are you sure you want to delete this reply?</p>
+																			        <p>Вы уверены что хотите удалить?</p>
 																			        <p class="font-italic text-danger">"{{ reply.reply }}"</p>
 																			      </div>
 																			      <div class="modal-footer">
-																			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-																			        <a href="{% url 'reply_delete' reply.pk %}" class="btn btn-danger">Yes, Delete</a>
+																			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+																			        <a href="{% url 'reply_delete' reply.pk %}" class="btn btn-danger">Да, удалить</a>
 																			      </div>
 																			    </div>
 																			  </div>
@@ -424,7 +424,7 @@
 																<div class="d-flex text-muted mt-1">
 																	<span class="small c-pointer left-nav-link {% if request.user in reply.likes.all %}text-primary{% endif %} reply-like-element" data-reply_id="{{ reply.pk }}">
 																		<i class="fa fa-heart"></i>
-																		Like
+																		Нравится
 																		(<span class="reply-likes-count">{{ reply.likes.all.count }}</span>)
 																	</span>
 																</div>
@@ -441,7 +441,7 @@
 
 							{% else %}
 
-								<h4 class="mt-5 text-center text-muted">No Comments</h4>
+								<h4 class="mt-5 text-center text-muted">Нет комментариев</h4>
 
 							{% endif %}
 						</div>
