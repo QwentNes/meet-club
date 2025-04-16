@@ -126,14 +126,19 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'  # Было 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'  # Было UTC
 
 USE_I18N = True
 
 USE_TZ = True
 
+LANGUAGES = [
+    ('ru', 'Русский'),
+]
+
+LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]  # Путь к файлам переводов
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
