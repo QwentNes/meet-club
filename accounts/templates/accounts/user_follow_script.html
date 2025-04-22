@@ -25,9 +25,9 @@
 					console.log('You are not logged in');
 				} else if (data.status === 'ok') {
 					if (data.action === 'follow') {
-						followBtn.innerHTML = 'Following';
+						followBtn.innerHTML = 'Подписан';
 					} else if (data.action === 'unfollow') {
-						followBtn.innerHTML = 'Follow';
+						followBtn.innerHTML = 'Подписаться';
 					}
 					if (followersCount) followersCount.innerHTML = data.num_of_followers;
 				} else {

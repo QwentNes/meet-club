@@ -13,9 +13,14 @@
 	<!-- Nav Section -->
 
 	<nav class="navbar navbar-expand-sm navbar-light bg-white d-flex justify-content-start justify-content-sm-between fixed-top">
-		<a href="#" class="navbar-brand flex-grow-1 flex-sm-grow-0 d-flex justify-content-center">
-			<h3 class="color-secondary" style="font-family: cursive;">MeetClub</h3>
-		</a>
+		<div style="display: flex; align-items: center;">
+			<a href="{% url 'home' %}" class="navbar-brand">
+				<h3 class="color-secondary" style="font-family: cursive; margin: 0">MeetClub</h3>
+			</a>
+			<div>
+				<a href="{% url 'about_program' %}" class="btn btn-primary">О программе</a>
+			</div>
+		</div>
 		<ul class="navbar-nav">
 			<li class="nav-item d-none d-sm-block mx-3">
 				<a href="#" class="nav-link nav-item-line active position-relative">

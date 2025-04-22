@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
-
+from django.contrib.auth import views as auth_views
+ 
 urlpatterns = [
 	path('profile/<int:user_pk>/post/', views.profile_post_view, name='profile_post'),
 	path('profile/<int:user_pk>/about/', views.profile_about_view, name='profile_about'),
@@ -20,4 +21,17 @@ urlpatterns = [
 	path('friend-list/<int:user_pk>/', views.friend_list_view, name='friend_list'),
 	path('remove-friend/<int:user_pk>/', views.remove_friend_view, name='remove_friend'),
 	path('user-search', views.user_search_view, name='user_search'),
-]
+    path('password_reset/', auth_views.PasswordResetView.as_view(
+        template_name='account/password_reset.html'
+    ), name='password_reset'),
+    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(
+        template_name='account/password_reset_done.html'
+    ), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(
+        template_name='account/password_reset_from_key.html'
+    ), name='password_reset_confirm'),
+    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(
+        template_name='account/password_reset_from_key_done.html'
+    ), name='password_reset_complete'),
+    path('about/', views.about_program_view, name='about_program'),
+] 

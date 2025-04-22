@@ -1,5 +1,10 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-white fixed-top">
-	<a href="{% url 'home' %}" class="navbar-brand">
-		<h3 class="color-secondary" style="font-family: cursive;">MeetClub</h3>
-	</a>
+	<div style="display: flex; align-items: center;">
+		<a href="{% url 'home' %}" class="navbar-brand">
+			<h3 class="color-secondary" style="font-family: cursive; margin: 0">MeetClub</h3>
+		</a>
+		<div>
+			<a href="{% url 'about_program' %}" class="btn btn-primary">О программе</a>
+		</div>
+	</div>
 </nav>
